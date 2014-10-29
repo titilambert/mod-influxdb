@@ -146,10 +146,6 @@ class InfluxdbBroker(BaseModule):
             )
         )
 
-        post_data.extend(
-            self.get_state_update_points(b.data, name)
-        )
-
         try:
             logger.debug("[influxdb broker] Launching: %s" % str(post_data))
         except UnicodeEncodeError:
@@ -170,10 +166,6 @@ class InfluxdbBroker(BaseModule):
                 b.data['last_chk'],
                 name
             )
-        )
-
-        post_data.extend(
-            self.get_state_update_points(b.data, name)
         )
 
         try:
